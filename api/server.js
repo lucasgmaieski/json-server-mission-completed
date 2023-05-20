@@ -5,7 +5,9 @@ const server = jsonServer.create()
 const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
-server.use(cors());
+server.use(cors({
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adicione todos os métodos HTTP que você deseja permitir
+  }));
 
 server.use(middlewares)
 // Add this before server.use(router)
